@@ -51,6 +51,7 @@ export class Connection {
       jsonrpc: "2.0",
       id: msgId,
       method: method,
+      params: _params,
     };
 
     await this.#stream.send(msg);
