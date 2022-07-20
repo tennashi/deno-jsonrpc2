@@ -45,7 +45,7 @@ export class Connection {
     await this.#stream.send(msg);
   }
 
-  async call(method: string, ..._params: unknown[]): Promise<ResponseMessage> {
+  async callWithObjectParams(method: string, _params: unknown): Promise<ResponseMessage> {
     const msgId = this.#msgIdGen.generateId();
     const msg: RequestMessage = {
       jsonrpc: "2.0",
@@ -59,6 +59,10 @@ export class Connection {
     this.#responseWaiting.set(msgId, v);
 
     return v;
+  }
+
+  async call(method: string, ..._params: unknown[]): Promise<ResponseMessage> {
+    return await this.callWithObjectParams(method, _params);
   }
 
   listen() {
