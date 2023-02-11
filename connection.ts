@@ -45,12 +45,13 @@ export class Connection {
     await this.#stream.send(msg);
   }
 
-  async call(method: string, ..._params: unknown[]): Promise<ResponseMessage> {
+  async call(method: string, ...params: unknown[]): Promise<ResponseMessage> {
     const msgId = this.#msgIdGen.generateId();
     const msg: RequestMessage = {
       jsonrpc: "2.0",
       id: msgId,
       method: method,
+      params: params,
     };
 
     await this.#stream.send(msg);
