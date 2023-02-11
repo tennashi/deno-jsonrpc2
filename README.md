@@ -42,8 +42,9 @@ conn.close();
 ```
 
 ## Acknowledgements
+
 I used the following code as a reference.
 
-* https://github.com/lambdalisue/deno-msgpack-rpc
-* https://github.com/hrsh7th/deno-json-rpc
-* https://pkg.go.dev/golang.org/x/tools/internal/jsonrpc2
+- https://github.com/lambdalisue/deno-msgpack-rpc
+- https://github.com/hrsh7th/deno-json-rpc
+- https://pkg.go.dev/golang.org/x/tools/internal/jsonrpc2
